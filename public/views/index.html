@@ -38,7 +38,6 @@
     <!--search place autocomplete input area-->
       <input id="autocomplete" type="text" placeholder="Where are you travelling from?">
       <input id="autocomplete" type="text" placeholder="Where are you travelling to?">
-      <script src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&language=en"></script>
 
     <!--map display area-->
     <div id="map"></div>
@@ -55,6 +54,11 @@
           zoom: 15
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Autocomplete search
+        var input = document.getElementById('autocomplete');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
@@ -83,13 +87,11 @@
                               'Error: Your browser doesn\'t support geolocation.');
       }
 
-      // Search place autocomplete
-      var input = document.getElementById('autocomplete');
-      var autocomplete = new google.maps.places.Autocomplete(input);
-
     </script>
-    <script async defer
+    <!--<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD0QqOTpvkybMTag7VzEpkvwCCzP8Uh5c&callback=initMap">
-    </script>
+  </script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD0QqOTpvkybMTag7VzEpkvwCCzP8Uh5c&libraries=places&callback=initMap"
+        async defer></script>
   </body>
 </html>
