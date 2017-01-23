@@ -13,17 +13,36 @@
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 60%;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
+        font-family:"Trebuchet MS", Helvetica, sans-serif;
+        text-align: center;
+      }
+      input {
+        width:300px;
+        height: 30px;
+        padding-left: 10px;
+        border-radius: 4px;
+        border: 1px solid rgb(186, 178, 178);
+        box-shadow: 0px 0px 12px #EFEFEF;
+        margin:20px auto;
+        display:block;
       }
     </style>
   </head>
+
   <body>
-    <h1>BeepApp: Prototype</h1>
-    <label for="locationTextField">Location</label>
-      <input id="locationTextField" type="text" size="50">
-      <br><br>
+    <h1>BEEP: Prototype</h1>
+    <p>PLAN A JOURNEY</p>
+
+    <!--search place autocomplete input area-->
+      <input id="autocomplete" type="text" placeholder="Where are you travelling from?">
+      <input id="autocomplete" type="text" placeholder="Where are you travelling to?">
+      <script src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&language=en"></script>
+
+    <!--map display area-->
     <div id="map"></div>
+
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -63,6 +82,10 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
+
+      // Search place autocomplete
+      var input = document.getElementById('autocomplete');
+      var autocomplete = new google.maps.places.Autocomplete(input);
 
     </script>
     <script async defer
