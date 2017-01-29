@@ -8,13 +8,14 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 115%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 60%;
         margin: 0 auto;
         padding: 0;
+        padding-top: 25%;
         font-family:"Trebuchet MS", Helvetica, sans-serif;
         text-align: center;
       }
@@ -28,69 +29,32 @@
         margin:20px auto;
         display:block;
       }
-    </style>
+      button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+      a {
+        text-decoration: none;
+        color:white;
+      }
+
+        </style>
   </head>
 
   <body>
-    <h1>BEEP: Prototype</h1>
-    <p>PLAN A JOURNEY</p>
+    <h1>BEEP</h1>
+    <p>Plan and organise car-shared journey with your friends and family.</p>
 
     <!--search place autocomplete input area-->
-      <input id="autocomplete" type="text" placeholder="Where are you travelling from?">
 
-    <!--map display area-->
-    <div id="map"></div>
+      <button type="button"><a href="plan.html">Plan a Journey</a></button><br><br>
 
-    <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
 
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 51.4502, lng: -2.6503},
-          zoom: 15
-        });
-        var infoWindow = new google.maps.InfoWindow({map: map});
-
-        // Autocomplete search
-        var input = document.getElementById('autocomplete');
-        var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo('bounds', map);
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Current location');
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-      }
-
-    </script>
-    <!--<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD0QqOTpvkybMTag7VzEpkvwCCzP8Uh5c&callback=initMap">
-  </script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD0QqOTpvkybMTag7VzEpkvwCCzP8Uh5c&libraries=places&callback=initMap"
-        async defer></script>
   </body>
 </html>
