@@ -1,44 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Geolocation</title>
+    <title>Beep- Plan</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 115%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 60%;
-        margin: 0 auto;
-        padding: 0;
-        font-family:"Trebuchet MS", Helvetica, sans-serif;
-        text-align: center;
-      }
-      input {
-        width:300px;
-        height: 30px;
-        padding-left: 10px;
-        border-radius: 4px;
-        border: 1px solid rgb(186, 178, 178);
-        box-shadow: 0px 0px 12px #EFEFEF;
-        margin:20px auto;
-        display:block;
-      }
-      button {
-        background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        padding: 10px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-      }
-        </style>
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/main.css">
+    <link rel="stylesheet" href="static/stylesheets/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   </head>
 
   <body>
@@ -46,13 +18,19 @@
     <p>Plan a car-shared journey</p>
 
     <!--search place autocomplete input area-->
+      <input id="journeyName" type="text" placeholder="Whats the name of this journey?">
+
       <input id="startAddress" type="text" placeholder="Where are you travelling from?">
       <input id="endAddress" type="text" placeholder="Where are you travelling to?">
-      <input id="" type="text" placeholder="Who are you sharing car with?">
+      <input id="datepicker" type="text" placeholder="What day?">
+      <script>
+      $( function() {
+         $( "#datepicker" ).datepicker();
+       } );
+      </script>
+      <button type="button" class="button-1"><a class="button-font" href="invite-friends.html">Next</a></button>
 
-      <button type="button">Plan</button><br><br>
-
-    <!--map display area-->
+    <!--map hidden-->
     <div id="map"></div>
 
     <script>
@@ -81,7 +59,7 @@
 
         autocomplete.bindTo('bounds', map);
 
-        // Try HTML5 geolocation.
+        // HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
