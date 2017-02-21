@@ -5,18 +5,27 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
-    <link rel="stylesheet" type="text/css" href="../static/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
   </head>
 
+  <header class="header-container">
+    <div class="title left"><i class="material-icons" onclick="goBack()">keyboard_arrow_left</i></div>
+      <script>
+          function goBack() {
+              window.history.back();
+          }
+      </script>
+  </header>
+
   <body>
-    <div class="container">
-        <div class="invite-friends">
+    <div class="container" id="invite-friends">
           <h3>Share your car with friends and family.</h3>
           <p>Let your friends car be at home. Invite them to ride with you. Less traffic. Less population. Less cost.</p>
 
           <button type="button" class="button-1"><a class="button-font" href="send-invitation.html">Find and Invite Friends</a></button>
 
-        </div>
     </div>
   </body>
 </html>

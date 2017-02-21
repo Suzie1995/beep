@@ -5,8 +5,20 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
-    <link rel="stylesheet" type="text/css" href="../static/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
   </head>
+
+  <header class="header-container">
+    <div class="title left"><i class="material-icons" onclick="goBack()">keyboard_arrow_left</i></div>
+      <script>
+          function goBack() {
+              window.history.back();
+          }
+      </script>
+    <div class="title center">Find and Invite Friends</div>
+  </header>
 
   <body>
     <div class="container">
