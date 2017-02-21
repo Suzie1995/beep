@@ -8,6 +8,24 @@ html, body {
   text-align: center;
 }
 
+/*styles for title*/
+.header-container {
+  height: 50px;
+  background: white;
+}
+.title {
+  padding: 15px;
+  font-size: 16px;
+}
+.center {
+  padding-right: 60px;
+}
+.left {
+  float: left;
+  overflow:hidden;
+}
+
+/*styles for button*/
 .button-1 {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -16,12 +34,38 @@ html, body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom:25px;
+  width: 175px;
 }
 .button-font {
   text-decoration: none;
   color:white;
+}
+
+/*styles for login/ register buttons
+  reference- https://dribbble.com/shots/1358062-Social-Login-Buttons
+*/
+.register-buttons, .login-buttons {
+  padding-top:40px;
+}
+.register-button, .login-button {
+  width:220px;
+  display: block;
+  margin: auto;
+  padding:12px;
+}
+.register-input {
+  margin-top:50px;
+  padding-bottom:45px;
+}
+
+/*Skip links*/
+.skip-link, .skip {
+  padding-top: 50px;
+  font-size: 10px;
+  color: #4A4A4A;
+  text-decoration:none;
 }
 
 /*styles for onboarding page*/
@@ -40,8 +84,10 @@ html, body {
   height: 115%;
   display:none;
 }
-
-$color: #1abc9c;
+.hello {
+  text-align: left;
+  padding-left:24px;
+}
 
 h1, input::-webkit-input-placeholder, button {
   font-family: 'roboto', sans-serif;
@@ -50,26 +96,10 @@ h1, input::-webkit-input-placeholder, button {
 
 input {
   margin: 40px 25px;
-  width: 200px;
+  width: 330px;
   display: block;
   border: none;
   padding: 10px 0;
-  border-bottom: solid 1px $color;
-  transition: all 0.3s cubic-bezier(.64,.09,.08,1);
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $color 4%);
+  border-bottom: solid 1px #BCBCBC;
   background-position: -200px 0;
-  background-size: 200px 100%;
-  background-repeat: no-repeat;
-  color: darken($color, 20%);
-  &:focus, &:valid {
-    box-shadow: none;
-    outline: none;
-    background-position: 0 0;
-    &::-webkit-input-placeholder {
-      color: $color;
-      font-size: 11px;
-      transform: translateY(-20px);
-      visibility: visible !important;
-    }
-  }
 }

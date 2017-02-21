@@ -5,30 +5,46 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
-    <link rel="stylesheet" type="text/css" href="static/stylesheets/main.css">
-    <link rel="stylesheet" href="static/stylesheets/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/toogle-switch.css">
+    <link rel="stylesheet" href="stylesheets/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
   </head>
 
-  <body>
-    <h1>BEEP</h1>
-    <p>Plan a car-shared journey</p>
+  <header class="header-container">
+    <div class="title left"><i class="material-icons" onclick="goBack()">keyboard_arrow_left</i></div>
+      <script>
+          function goBack() {
+              window.history.back();
+          }
+      </script>
+  </header>
 
+  <body>
+    <h2 class="hello">Hello,</h2>
     <!--search place autocomplete input area-->
-      <input id="journeyName" type="text" placeholder="Whats the name of this journey?">
+      <input id="journeyName" type="text" placeholder="What's the name of this journey?">
 
       <input id="startAddress" type="text" placeholder="Where are you travelling from?">
       <input id="endAddress" type="text" placeholder="Where are you travelling to?">
       <input id="datepicker" type="text" placeholder="What day?">
-      <script>
-      $( function() {
-         $( "#datepicker" ).datepicker();
-       } );
-      </script>
-      <button type="button" class="button-1"><a class="button-font" href="invite-friends.html">Next</a></button>
+          <script>
+              $( function() {
+                 $( "#datepicker" ).datepicker();
+               } );
+          </script>
+      Roundtrip
+      <label class="switch">
+          <input type="checkbox">
+          <div class="slider"></div>
+      </label>
+
+      <button type="button" class="button-1"><a class="button-font" href="invite-friends.html">Plan a Journey</a></button>
+      <div class="skip-link"><a href="plan.html" class="skip">Skip, I will plan later</a></div>
+
 
     <!--map hidden-->
     <div id="map"></div>
