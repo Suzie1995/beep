@@ -37,7 +37,7 @@
 	//2.Use app id,secret and redirect url
 	 $app_id = '122642138254909';
 	 $app_secret = '60cac9acf286d052e5958edcad8ce27f';
-	 $redirect_url='https://beep-app.herokuapp.com/login.html';
+	 $redirect_url='https://beep-app.herokuapp.com/login.php';
 
 	 //3.Initialize application, create helper object and get fb sess
 	 FacebookSession::setDefaultApplication($app_id,$app_secret);
